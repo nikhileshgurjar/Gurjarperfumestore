@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071b16">
+<title>Gurjar Perfumes | Find Your Signature Scent</title>
+<style>
+:root{--bg:#071b16;--bg2:#0c2820;--panel:#103329;--gold:#d9b66d;--gold2:#f0d99e;--cream:#f5f0e5;--muted:#b8c8bd;--line:rgba(217,182,109,.22)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--cream);font-family:Arial,Helvetica,sans-serif}button,input,textarea,select{font:inherit}a{color:inherit;text-decoration:none}
+.topbar{padding:11px 5%;text-align:center;background:#d9b66d;color:#10251d;font-size:12px;letter-spacing:2px;font-weight:700}
+header{display:flex;align-items:center;justify-content:space-between;padding:22px 7%;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(7,27,22,.94);backdrop-filter:blur(12px);z-index:5}
+.logo{font-family:Georgia,serif;font-size:22px;letter-spacing:2px;color:var(--gold2)}.logo span{display:block;font:9px Arial;letter-spacing:5px;color:var(--muted);margin-top:4px}
+nav{display:flex;gap:28px;font-size:13px;color:var(--muted)}nav a:hover{color:var(--gold2)}
+.hero{min-height:540px;padding:85px 8%;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:35px;background:radial-gradient(ellipse at 80% 45%,#1b4937 0%,#0b281f 34%,#071b16 72%)}
+.eyebrow{color:var(--gold);font-size:11px;letter-spacing:4px;font-weight:bold}.hero h1{font:clamp(42px,6vw,76px)/1.04 Georgia,serif;margin:18px 0}.hero h1 em{color:var(--gold2);font-weight:400}.hero p{color:var(--muted);line-height:1.8;max-width:520px;font-size:15px}.btn{display:inline-block;border:1px solid var(--gold);background:var(--gold);color:#10251d;padding:14px 24px;font-weight:bold;letter-spacing:1px;font-size:12px;cursor:pointer;transition:.25s}.btn:hover{background:transparent;color:var(--gold2);transform:translateY(-2px)}.btn-outline{background:transparent;color:var(--gold2);margin-left:10px}
+.hero-art{height:360px;display:flex;align-items:center;justify-content:center;position:relative}.halo{position:absolute;width:310px;height:310px;border:1px solid rgba(217,182,109,.3);border-radius:50%;box-shadow:0 0 80px rgba(217,182,109,.08),inset 0 0 70px rgba(217,182,109,.06)}
+.bottle{position:relative;width:150px;height:220px;border-radius:25px 25px 18px 18px;background:linear-gradient(100deg,#a7a77a,#e6d9a6 28%,#6f8152 55%,#263e2c);box-shadow:20px 25px 45px #0008,inset 8px 0 12px #fff5;z-index:1;display:flex;align-items:center;justify-content:center;color:#20372a;text-align:center}
+.bottle:before{content:"";position:absolute;width:58px;height:35px;background:linear-gradient(90deg,#8b7041,#e3c77f,#98743b);top:-34px;border-radius:5px 5px 1px 1px;box-shadow:0 0 0 5px #b99b59}
+.bottle:after{content:"";position:absolute;inset:18px 12px;border:1px solid #f8e8b0a8;border-radius:16px}
+.bottle-label{z-index:2;font: bold 13px Georgia;letter-spacing:2px;background:#e7d8a8b8;padding:13px 7px;width:100%;line-height:1.5}.bottle-label small{display:block;font:8px Arial;letter-spacing:2px}
+.float-note{position:absolute;color:var(--gold2);font:italic 16px Georgia;right:4%;bottom:28px}
+.section{padding:78px 7%}.section-head{text-align:center;margin-bottom:42px}.section-head h2{font:clamp(32px,4vw,46px) Georgia,serif;margin:12px 0}.section-head p{color:var(--muted);font-size:14px}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.product{background:linear-gradient(150deg,#12382c,#0b241c);border:1px solid var(--line);padding:17px;transition:.3s;position:relative;overflow:hidden}.product:hover{transform:translateY(-7px);border-color:var(--gold)}
+.product-visual{height:230px;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse,#28543e,#0b211a 70%);position:relative;overflow:hidden}.product-visual:after{content:"";position:absolute;width:190px;height:190px;border:1px solid #d9b66d40;border-radius:50%}
+.mini-bottle{width:100px;height:145px;border-radius:17px 17px 12px 12px;position:relative;z-index:1;box-shadow:12px 18px 25px #0008,inset 7px 0 10px #ffffff40;display:flex;align-items:center;justify-content:center}
+.mini-bottle:before{content:"";position:absolute;top:-22px;width:38px;height:24px;background:linear-gradient(90deg,#806538,#e5cb82,#806538);border-radius:4px 4px 0 0}.mini-bottle:after{content:"";position:absolute;inset:12px 8px;border:1px solid #fff8;border-radius:11px}
+.mini-label{font: bold 9px Georgia;letter-spacing:1px;color:#25352a;background:#e7d8a8d9;padding:10px 3px;text-align:center;width:100%;z-index:2}.mini-label small{display:block;font:6px Arial;letter-spacing:1px;margin-top:4px}
+.tag{position:absolute;top:13px;left:13px;background:var(--gold);color:#14281e;padding:6px 9px;font-size:9px;letter-spacing:1px;font-weight:bold;z-index:2}
+.product h3{font:23px Georgia;margin:18px 0 7px}.desc{color:var(--muted);font-size:12px;line-height:1.7;min-height:42px}.notes{color:#d7c69e;font-size:11px;margin:12px 0}.price-row{display:flex;align-items:center;justify-content:space-between;margin:16px 0}.price{font-size:21px;color:var(--gold2);font-weight:bold}.size{font-size:11px;color:var(--muted)}.order-btn{width:100%;padding:13px;background:transparent;border:1px solid var(--gold);color:var(--gold2);font-size:11px;font-weight:bold;letter-spacing:2px;cursor:pointer;transition:.2s}.order-btn:hover{background:var(--gold);color:#10251d}
+.story{background:#0b241c;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}.story h2{font:40px Georgia;margin:12px 0}.story p{color:var(--muted);line-height:1.9;font-size:14px}.story-card{padding:35px;border:1px solid var(--line);text-align:center;background:linear-gradient(145deg,#153c2e,#0a211a)}.story-card strong{font:32px Georgia;color:var(--gold2);display:block;margin-bottom:10px}
+footer{padding:35px 7%;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:12px}.footbrand{font:20px Georgia;color:var(--gold2)}
+.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:18px;z-index:20}.modal.show{display:flex}.modal-box{width:min(560px,100%);max-height:92vh;overflow:auto;background:#0d2a20;border:1px solid var(--gold);padding:27px;box-shadow:0 25px 80px #0009;animation:rise .25s ease}@keyframes rise{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+.modal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.modal h2{font:30px Georgia;margin:5px 0;color:var(--gold2)}.close{background:none;border:0;color:var(--cream);font-size:28px;cursor:pointer}.selected{color:var(--gold);font-size:13px;margin:8px 0 18px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:11px;letter-spacing:1px;color:#d7c69e}.field input,.field textarea,.field select{width:100%;background:#071d16;border:1px solid #355b4b;color:var(--cream);padding:12px;outline:none;border-radius:0}.field input:focus,.field textarea:focus{border-color:var(--gold)}.field textarea{min-height:75px;resize:vertical}.submit{width:100%;margin-top:18px}.smallprint{font-size:10px;color:#9eafa4;line-height:1.6;margin-top:12px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;text-align:center;padding-top:65px}.hero p{margin:0 auto 22px}.hero-art{height:300px}.products{grid-template-columns:repeat(2,1fr)}.story{grid-template-columns:1fr}.float-note{right:8%}}
+@media(max-width:560px){header{padding:17px 5%}nav{gap:13px;font-size:11px}.logo{font-size:18px}.hero{padding:58px 6%}.hero-art{height:270px}.halo{width:245px;height:245px}.bottle{transform:scale(.82)}.section{padding:60px 5%}.products{grid-template-columns:1fr;gap:16px}.product-visual{height:245px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}footer{flex-direction:column;text-align:center}.btn-outline{margin:10px 0 0}}
+</style>
+</head>
+<body>
+<div class="topbar">A SIGNATURE SCENT FOR EVERY STORY &nbsp; • &nbsp; DISCOVER YOUR FRAGRANCE</div>
+<header>
+  <a class="logo" href="#">GURJAR PERFUMES<span>THE ART OF FRAGRANCE</span></a>
+  <nav><a href="#home">HOME</a><a href="#collection">COLLECTION</a><a href="#about">ABOUT</a></nav>
+</header>
+<main>
+<section class="hero" id="home">
+  <div>
+    <div class="eyebrow">CRAFTED TO BE REMEMBERED</div>
+    <h1>Wear Your<br><em>Presence.</em></h1>
+    <p>Discover fragrances that express your personality. From fresh daytime notes to deep evening aromas, find the scent that feels unmistakably yours.</p>
+    <a class="btn" href="#collection">EXPLORE COLLECTION</a>
+    <a class="btn btn-outline" href="#about">OUR STORY</a>
+  </div>
+  <div class="hero-art"><div class="halo"></div><div class="bottle"><div class="bottle-label">GURJAR<small>PERFUMES</small><small>EAU DE PARFUM</small></div></div><div class="float-note">A scent. A signature.</div></div>
+</section>
+<section class="section" id="collection">
+  <div class="section-head"><div class="eyebrow">THE COLLECTION</div><h2>Find Your Signature</h2><p>Six distinctive fragrances. One unforgettable impression.</p></div>
+  <div class="products" id="productGrid"></div>
+</section>
+<section class="section story" id="about">
+  <div><div class="eyebrow">THE GURJAR EXPERIENCE</div><h2>More Than a Fragrance.</h2><p>GURJAR PERFUMES is a sample fragrance-store experience built around individuality, confidence and memorable moments. Explore the collection and choose a fragrance that tells your story.</p></div>
+  <div class="story-card"><strong>GURJAR</strong><span style="color:var(--gold);letter-spacing:4px;font-size:10px">PERFUMES</span><p style="font:italic 18px Georgia;color:var(--cream)">“Leave a little of your story wherever you go.”</p></div>
+</section>
+</main>
+<footer><div><div class="footbrand">GURJAR PERFUMES</div><div style="margin-top:8px">The art of fragrance.</div></div><div>© 2026 GURJAR PERFUMES · Sample Store Website</div></footer>
+
+<div class="modal" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+ <div class="modal-box">
+  <div class="modal-top"><div class="eyebrow">YOUR FRAGRANCE, YOUR ORDER</div><button class="close" type="button" aria-label="Close" onclick="closeOrder()">×</button></div>
+  <h2 id="formTitle">Place Your Order</h2>
+  <div class="selected" id="selectedProduct">Selected perfume</div>
+  <form action="https://formsubmit.co/harshitgurjar049@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New order - GURJAR PERFUMES">
+    <input type="hidden" name="_template" value="table">
+    <input type="text" name="_honey" style="display:none">
+    <input type="hidden" name="Perfume ordered" id="productInput">
+    <div class="form-grid">
+      <div class="field"><label for="name">FULL NAME *</label><input id="name" name="Customer name" autocomplete="name" required placeholder="Your full name"></div>
+      <div class="field"><label for="phone">MOBILE NUMBER *</label><input id="phone" name="Mobile number" type="tel" autocomplete="tel" required pattern="[0-9+\-\s]{10,15}" placeholder="10-digit mobile number"></div>
+      <div class="field full"><label for="email">GMAIL / EMAIL *</label><input id="email" name="Customer email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
+      <div class="field full"><label for="address">FULL ADDRESS *</label><textarea id="address" name="Full address" autocomplete="street-address" required placeholder="House no., street, area, landmark"></textarea></div>
+      <div class="field"><label for="city">CITY / VILLAGE *</label><input id="city" name="City or village" required placeholder="City or village"></div>
+      <div class="field"><label for="state">STATE *</label><input id="state" name="State" required placeholder="State"></div>
+      <div class="field"><label for="pin">PINCODE *</label><input id="pin" name="Pincode" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required placeholder="6-digit pincode"></div>
+      <div class="field"><label for="qty">QUANTITY *</label><select id="qty" name="Quantity"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+    </div>
+    <button class="btn submit" type="submit">SUBMIT ORDER</button>
+    <p class="smallprint">Demo store: submitting sends the order details to the store email using FormSubmit. The first submission may require email activation by the store owner. Product prices and delivery arrangements should be confirmed before taking real orders.</p>
+  </form>
+ </div>
+</div>
+<script>
+const products=[
+ {name:"Emerald Oud",price:899,size:"50 ml",tag:"BESTSELLER",desc:"A deep, confident blend with warm woods and rich oud character.",notes:"Oud · Amber · Sandalwood",color:"linear-gradient(110deg,#182c22,#70804b,#17291f)"},
+ {name:"Royal Musk",price:749,size:"50 ml",tag:"ELEGANT",desc:"Soft, smooth and refined — made for an effortlessly polished presence.",notes:"White Musk · Iris · Cedar",color:"linear-gradient(110deg,#b8aa83,#eee1bb,#786b50)"},
+ {name:"Citrus Bloom",price:599,size:"50 ml",tag:"FRESH",desc:"A bright, uplifting fragrance with a crisp and energetic finish.",notes:"Bergamot · Citrus · Neroli",color:"linear-gradient(110deg,#a6a34a,#e7d778,#65723b)"},
+ {name:"Midnight Noir",price:999,size:"50 ml",tag:"INTENSE",desc:"A bold evening scent with warm spice and a smooth woody base.",notes:"Black Pepper · Tonka · Vetiver",color:"linear-gradient(110deg,#10151a,#53616b,#171c20)"},
+ {name:"Rose Velvet",price:699,size:"50 ml",tag:"SIGNATURE",desc:"A graceful floral fragrance balanced with a gentle, creamy warmth.",notes:"Rose · Vanilla · White Woods",color:"linear-gradient(110deg,#784b50,#d69b9c,#6c3943)"},
+ {name:"Aqua Drift",price:649,size:"50 ml",tag:"DAILY WEAR",desc:"Clean aquatic freshness with a light, refreshing trail for everyday use.",notes:"Marine Notes · Mint · Musk",color:"linear-gradient(110deg,#386b70,#9bc7bc,#31535a)"}
+];
+const grid=document.getElementById("productGrid");
+grid.innerHTML=products.map((p,i)=>`<article class="product"><div class="product-visual"><span class="tag">${p.tag}</span><div class="mini-bottle" style="background:${p.color}"><div class="mini-label">GURJAR<small>${p.name.toUpperCase()}</small></div></div></div><h3>${p.name}</h3><div class="desc">${p.desc}</div><div class="notes">${p.notes}</div><div class="price-row"><span class="price">₹${p.price.toLocaleString("en-IN")}</span><span class="size">${p.size}</span></div><button class="order-btn" onclick="openOrder(${i})">ORDER NOW →</button></article>`).join("");
+function openOrder(i){const p=products[i];document.getElementById("selectedProduct").textContent=`${p.name} · ₹${p.price} · ${p.size}`;document.getElementById("productInput").value=`${p.name} | ₹${p.price} | ${p.size}`;document.getElementById("orderModal").classList.add("show");document.body.style.overflow="hidden";}
+function closeOrder(){document.getElementById("orderModal").classList.remove("show");document.body.style.overflow="";}
+document.getElementById("orderModal").addEventListener("click",e=>{if(e.target.id==="orderModal")closeOrder()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeOrder()});
+</script>
+</body>
+</html>
